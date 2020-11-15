@@ -25,10 +25,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Local apps
     'accounts.apps.AccountsConfig',
     'core.apps.CoreConfig',
+
     # Third-party apps
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -110,3 +113,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# ARVAN CLOUD STORAGE
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'f3d31c09-2103-461d-825a-b539c604b141'
+AWS_SECRET_ACCESS_KEY = 'e85a22d1b15c2511cefbb8dd40fa3d899ab6d1c01ce82c42286b05eedb9f495f'
+AWS_STORAGE_BUCKET_NAME = 'mongard'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
+AWS_S3_FILE_OVERWRITE = False
