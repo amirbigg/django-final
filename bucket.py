@@ -6,6 +6,9 @@ class Bucket:
 	"""CDN bucket manager
 
 	The init method creates connection
+
+	NOTE:
+		None of these methods are async. use public interface in tasks module.
 	"""
 
 	def __init__(self):
@@ -16,3 +19,13 @@ class Bucket:
 							aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
 							endpoint_url=settings.AWS_S3_ENDPOINT_URL,
 							)
+
+	def get_objects(self):
+		result = self.conn.list_objects_v2(Bucket=settings.AWS_STORAGE_BUCKET_NAME)
+		if result['KeyCount']:
+			return result['Contents']
+		else:
+			return None
+
+
+bucket = Bucket()
