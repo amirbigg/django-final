@@ -8,7 +8,8 @@ class Bucket:
 	The init method creates connection
 
 	NOTE:
-		None of these methods are async. use public interface in tasks module.
+		None of these methods are async. these methods are private interface.
+		use public interface in tasks module.
 	"""
 
 	def __init__(self):
@@ -30,6 +31,10 @@ class Bucket:
 	def delete_object(self, key):
 		self.conn.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=key)
 		return True
+
+	def download_object(self, key):
+		with open(settings.AWS_LOCAL_STORAGE + key, 'wb') as f:
+			self.conn.donwload_fileobj(settings.AWS_STORAGE_BUCKET_NAME, key, f)
 
 
 bucket = Bucket()

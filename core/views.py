@@ -24,3 +24,9 @@ class BucketDelete(LoginRequiredMixin, View):
 		messages.success(request, 'your request will done soon...', 'info')
 		return redirect('core:bucket_home')
 
+
+class BucketDownload(LoginRequiredMixin, View):
+	def get(self, request, key):
+		tasks.download_object_task.delay(key)
+		messages.success(request, 'your download will start soon', 'info')
+		return redirect('core:bucket_home')
