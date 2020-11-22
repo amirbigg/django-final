@@ -19,7 +19,7 @@
             <td>{{ obj.Key }}</td>
             <td>{{ obj.Size }}</td>
             <td>download</td>
-            <td>delete</td>
+            <td><a href="{% url 'core:bucket_delete' obj.Key %}">delete</a></td>
         </tr>
     {% endfor %}
     </tbody>

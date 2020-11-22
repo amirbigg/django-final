@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .tasks import all_bucket_objects_task
+from . import tasks
+from django.contrib import messages
 
 
 class Home(View):
@@ -13,5 +14,13 @@ class BucketHome(LoginRequiredMixin, View):
 	template_name = 'core/bucket.html'
 
 	def get(self, request):
-		objects = all_bucket_objects_task()
+		objects = tasks.all_bucket_objects_task()
 		return render(request, self.template_name, {'objects':objects})
+
+
+class BucketDelete(LoginRequiredMixin, View):
+	def get(self, request, key):
+		tasks.delete_object_task.delay(key)
+		messages.success(request, 'your request will done soon...', 'info')
+		return redirect('core:bucket_home')
+
