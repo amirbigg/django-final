@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load extra_filters %}
 
 {% block content %}
 
@@ -17,7 +18,7 @@
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{ obj.Key }}</td>
-            <td>{{ obj.Size }}</td>
+            <td>{{ obj.Size|converter }}</td>
             <td><a href="{% url 'core:bucket_download' obj.Key %}">download</a></td>
             <td><a href="{% url 'core:bucket_delete' obj.Key %}">delete</a></td>
         </tr>
