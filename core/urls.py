@@ -3,11 +3,11 @@ from . import views
 from . import api_views
 
 
-
 app_name = 'core'
 
 api_urls = [
-	path('questions/', api_views.QuestionView.as_view())
+	path('questions/', api_views.QuestionView.as_view()),
+	path('questions/<int:pk>/', api_views.QuestionView.as_view())
 ]
 
 urlpatterns = [
