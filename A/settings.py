@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     # Third-party apps
     'storages',
     'rest_framework',
-    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -131,6 +130,6 @@ AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
 # REST FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
