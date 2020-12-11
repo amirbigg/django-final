@@ -6,4 +6,6 @@
         {{ form.as_p }}
         <input type="submit" value="Login">
     </form>
+
+    <a href="{% url 'social:begin' 'github' %}" class="btn btn-info">Github</a>
 {% endblock %}
