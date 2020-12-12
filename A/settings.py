@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$!@)5d-8&y=_xz0(*3_*v-p-y3&_em19oqn(34f0%-2m_#af&l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -142,11 +142,16 @@ REST_FRAMEWORK = {
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_GITHUB_KEY = '7414ce269a455a368045'
 SOCIAL_AUTH_GITHUB_SECRET = 'bd3330c73dc01b747c7769c166a3742f5ce46d93'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '802848026705-2m5b28uri7ckth93p8hi40nm801blnkv.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'cHnXC716npGXMcXMiIC-ocpE'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email'
+]
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'core:home' # /accounts/profile/
-
-
+SOCIAL_AUTH_LOGIN_ERROR_URL = 'core:home'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
