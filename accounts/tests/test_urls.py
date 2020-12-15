@@ -9,5 +9,5 @@ class TestUrls(SimpleTestCase):
 		self.assertEqual(resolve(url).func.view_class, UserRegister)
 
 	def test_dashboard(self):
-		url = reverse('accounts:dashboard')
+		url = reverse('accounts:dashboard', args=['amir',])
 		self.assertEqual(resolve(url).func.view_class, UserDashboard)
