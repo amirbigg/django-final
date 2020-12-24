@@ -15,5 +15,5 @@ urlpatterns = [
 	path('login/', views.UserLogin.as_view(), name='login'),
 	path('logout/', views.UserLogout.as_view(), name='logout'),
 	path('dashboard/<str:username>/', views.UserDashboard.as_view(), name='dashboard'),
-	path('api/', include(api_urls))
+	path('api/', include(api_urls)),
 ]
