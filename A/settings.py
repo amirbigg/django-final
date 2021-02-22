@@ -127,9 +127,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 # ARVAN CLOUD STORAGE
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'f3d31c09-2103-461d-825a-b539c604b141'
-AWS_SECRET_ACCESS_KEY = 'e85a22d1b15c2511cefbb8dd40fa3d899ab6d1c01ce82c42286b05eedb9f495f'
-AWS_STORAGE_BUCKET_NAME = 'mongard'
+AWS_ACCESS_KEY_ID = 'your access key id'
+AWS_SECRET_ACCESS_KEY = 'your secret access key'
+AWS_STORAGE_BUCKET_NAME = 'your bucket name'
 AWS_SERVICE_NAME = 's3'
 AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
 AWS_S3_FILE_OVERWRITE = False
